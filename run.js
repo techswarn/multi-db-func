@@ -1,0 +1,1 @@
+require("./packages/dbaccess/getquery").main()

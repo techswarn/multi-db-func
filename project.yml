@@ -1,0 +1,84 @@
+# parameters: {}
+# environment: {}
+# packages:
+#     - name: dbaccess
+#       shared: false
+#       environment:
+#         PG_HOST: ${PG_HOST}
+#         PG_DATABASE: ${PG_DATABASE}
+#         PG_PORT: ${PG_PORT}
+#         PG_USER: ${PG_USER}
+#         PG_PASSWORD: ${PG_PASSWORD}
+#       parameters: {}
+#       annotations: {}
+#       functions:
+#         - name: pgcon
+#           binary: false
+#           main: ""
+#           runtime: nodejs:default
+#           web: true
+#           websecure: false
+#           parameters: {}
+#           environment: {}
+#           annotations: {}
+#           limits: {}
+
+targetNamespace: ""
+parameters: {}
+packages:
+  - name: dbaccess
+    environment: {}
+    parameters: {}
+    annotations: {}
+    actions:
+      - name: createtable
+        binary: false
+        main: ""
+        runtime: "nodejs:default"
+        web: true
+        parameters: {}
+        annotations: {}
+        limits:
+          timeout: 5000
+          memory: 256
+      - name: getquery
+        binary: false
+        main: ""
+        runtime: "nodejs:default"
+        web: true
+        parameters: {}
+        annotations: {}
+        limits:
+          timeout: 5000
+          memory: 256
+      - name: insertquery
+        binary: false
+        main: ""
+        runtime: "nodejs:default"
+        web: raw
+        parameters: {}
+        annotations: {}
+        limits:
+          timeout: 5000
+          memory: 256
+      - name: mysqlcreatetable
+        binary: false
+        main: ""
+        runtime: "nodejs:default"
+        web: raw
+        parameters: {}
+        annotations: {}
+        limits:
+          timeout: 5000
+          memory: 256
+environment:
+  PG_HOST: ${PG_HOST}
+  PG_DATABASE: ${PG_DATABASE}
+  PG_PORT: ${PG_PORT}
+  PG_USER: ${PG_USER}
+  PG_PASSWORD: ${PG_PASSWORD}
+  MYSQL_HOST: ${MYSQL_HOST}
+  MYSQL_DATABASE: ${MYSQL_DATABASE}
+  MYSQL_PORT: ${MYSQL_PORT}
+  MYSQL_USER: ${MYSQL_USER}
+  MYSQL_PASSWORD: ${MYSQL_PASSWORD}
